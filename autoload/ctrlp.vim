@@ -1084,6 +1084,7 @@ fu! s:AcceptSelection(action)
 			let type = exttype == 'dict' ? exttype : 'list'
 		en
 	en
+	let md = (bufloaded(0) == 0 && bufnr('$') == 2 ? 'e' : md)
 	let actargs = type == 'dict' ? [{ 'action': md, 'line': line, 'icr': icr }]
 		\ : [md, line]
 	cal call(actfunc, actargs)
